@@ -1,0 +1,4 @@
+WasppacerHider
+==============
+
+Скрывает Wasppacer
