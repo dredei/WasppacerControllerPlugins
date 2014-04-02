@@ -71,7 +71,7 @@ namespace WasppacerHider
                 object chkdObj = this._settings[ this, "AlwaysHideWasppacer" ];
                 if ( chkdObj != null )
                 {
-                    chkd = bool.Parse( chkdObj.ToString() );
+                    bool.TryParse( chkdObj.ToString(), out chkd );
                 }
                 return chkd;
             }
@@ -85,7 +85,7 @@ namespace WasppacerHider
                 object chkdObj = this._settings[ this, "ShowWasppacer" ];
                 if ( chkdObj != null )
                 {
-                    chkd = bool.Parse( chkdObj.ToString() );
+                    bool.TryParse( chkdObj.ToString(), out chkd );
                 }
                 return chkd;
             }

@@ -21,7 +21,7 @@ namespace DelayBeforeStarting
                 object intervalObj = this._settings[ this, "DelayInterval" ];
                 if ( intervalObj != null )
                 {
-                    interval = int.Parse( intervalObj.ToString() );
+                    int.TryParse( intervalObj.ToString(), out interval );
                 }
                 return interval;
             }
