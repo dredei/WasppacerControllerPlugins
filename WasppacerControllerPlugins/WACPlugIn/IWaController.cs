@@ -39,7 +39,7 @@ namespace WACPlugIn
         /// Получает ссылку на тему с последней версией ПО
         /// </summary>
         /// <returns></returns>
-        Task<string> GetLastVersionLinkAsync();
+        Task<string> GetLastVersionLinkAsync( bool release = true );
 
         /// <summary>
         /// Получает ссылку на RGHost
@@ -52,7 +52,7 @@ namespace WACPlugIn
         /// Переустанавливает Wasppacer
         /// </summary>
         /// <returns>Возвращает значение указывающее на успешность переустановки</returns>
-        Task<bool> ReinstallWasppacerAsync();
+        Task<bool> ReinstallWasppacerAsync( bool release = true );
 
         /// <summary>
         /// Перезапускает Wasppacer
