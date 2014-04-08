@@ -1,1 +1,1 @@
-1.0.0.1;https://github.com/dredei/WasppacerControllerPlugins/releases/download/v1.0.0.1/wasppacer_controller_setup.exe
+1.0.0.2;https://github.com/dredei/WasppacerControllerPlugins/releases/download/v1.0.0.2/wasppacer_controller_setup.exe
