@@ -30,10 +30,7 @@ namespace WACPlugIn
         /// <summary>
         /// Получение информации
         /// </summary>
-        /// <param name="activeAgents">К-во активных WAAgent</param>
-        /// <param name="memory">Потребление памяти процессами WAAgent</param>
-        /// <param name="activeWasppacer">К-во активных Wasppacer</param>
-        void GetInfo( out int activeAgents, out long memory, out int activeWasppacer );
+        WaspInfo GetInfo();
 
         /// <summary>
         /// Получает ссылку на тему с последней версией ПО
