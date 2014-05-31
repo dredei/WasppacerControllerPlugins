@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WACPlugIn", "WACPlugIn\WACP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerControll", "PowerControll\PowerControll.csproj", "{656473A8-8A97-406C-88B6-2370B72DF4FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClosingUnownedWasub", "ClosingUnownedWasub\ClosingUnownedWasub.csproj", "{13D7B2BB-C576-495B-813D-FF0486B363A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{656473A8-8A97-406C-88B6-2370B72DF4FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{656473A8-8A97-406C-88B6-2370B72DF4FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{656473A8-8A97-406C-88B6-2370B72DF4FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13D7B2BB-C576-495B-813D-FF0486B363A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13D7B2BB-C576-495B-813D-FF0486B363A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13D7B2BB-C576-495B-813D-FF0486B363A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13D7B2BB-C576-495B-813D-FF0486B363A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
