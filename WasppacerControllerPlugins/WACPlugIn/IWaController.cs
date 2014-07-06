@@ -9,11 +9,18 @@ namespace WACPlugIn
     public interface IWaController
     {
         /// <summary>
-        /// Скачивает архив во временную папку с RGHost
+        /// Скачивает архив с Wasppacer с актуального файлообменника и сохраняет во временную папку
         /// </summary>
-        /// <param name="rgHostLink">Ссылка на RGHost</param>
+        /// <param name="link">Ссылка</param>
         /// <returns>Возвращает путь к сохраненному файлу</returns>
-        Task<string> DownloadRgHostFileAsync( string rgHostLink );
+        Task<string> DonwloadFileFromFileSharing( string link );
+
+        /// <summary>
+        /// Получает ссылку на актуальный файлообменник
+        /// </summary>
+        /// <param name="threadLink">Ссылка на тему</param>
+        /// <returns></returns>
+        Task<string> GetFileSharingLinkAsync( string threadLink );
 
         /// <summary>
         /// Ожидание закрытия WAAgent
@@ -37,13 +44,6 @@ namespace WACPlugIn
         /// </summary>
         /// <returns></returns>
         Task<string> GetLastVersionLinkAsync( bool release = true );
-
-        /// <summary>
-        /// Получает ссылку на RGHost
-        /// </summary>
-        /// <param name="threadLink">Ссылка на тему</param>
-        /// <returns></returns>
-        Task<string> GetRgHostLinkAsync( string threadLink );
 
         /// <summary>
         /// Переустанавливает Wasppacer
