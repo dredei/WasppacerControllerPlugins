@@ -80,15 +80,16 @@ namespace PowerControll
 
         public Version Version
         {
-            get { return new Version( "1.0.0" ); }
+            get { return new Version( "1.0.1" ); }
         }
 
-        public void Activate( params object[] paramsArr )
+        public WaspEnvent[] Activate( params object[] paramsArr )
         {
             if ( paramsArr.Length > 1 && paramsArr[ 1 ] != null )
             {
                 this._waController = (IWaController)paramsArr[ 1 ];
             }
+            return new[] { WaspEnvent.CreateMenuItem, WaspEnvent.MenuItemClicked };
         }
 
         public async Task<object> Event( WaspEnvent eventName, params object[] paramsArr )

@@ -1,6 +1,7 @@
 ﻿#region Using
 
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 #endregion
@@ -19,7 +20,7 @@ namespace WACPlugIn
         /// Вызывается при активации плагина
         /// </summary>
         /// <param name="paramsArr">Массив параметров</param>
-        void Activate( params object[] paramsArr );
+        WaspEnvent[] Activate( params object[] paramsArr );
 
         /// <summary>
         /// Вызывается во время выполнения события

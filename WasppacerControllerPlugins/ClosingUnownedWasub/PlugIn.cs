@@ -73,12 +73,13 @@ namespace ClosingUnownedWasub
 
         public Version Version
         {
-            get { return new Version( 1, 0, 0 ); }
+            get { return new Version( 1, 0, 1 ); }
         }
 
-        public async void Activate( params object[] paramsArr )
+        public WaspEnvent[] Activate( params object[] paramsArr )
         {
-            await TaskEx.Run( () => this.InitTimer() );
+            this.InitTimer();
+            return null;
         }
 
         public async Task<object> Event( WaspEnvent eventName, params object[] paramsArr )

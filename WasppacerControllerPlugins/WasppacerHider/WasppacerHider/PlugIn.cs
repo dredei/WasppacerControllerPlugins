@@ -129,9 +129,10 @@ namespace WasppacerHider
 
         #region Members
 
-        public void Activate( params object[] paramsArr )
+        public WaspEnvent[] Activate( params object[] paramsArr )
         {
             this._settings = paramsArr[ 0 ] as ISettings;
+            return new[] { WaspEnvent.CreateMenuItem, WaspEnvent.MenuItemClicked, WaspEnvent.TimerTick };
         }
 
         public async Task<object> Event( WaspEnvent eventName, params object[] paramsArr )
@@ -210,7 +211,7 @@ namespace WasppacerHider
 
         public Version Version
         {
-            get { return new Version( "1.0.0" ); }
+            get { return new Version( "1.0.1" ); }
         }
 
         #endregion
