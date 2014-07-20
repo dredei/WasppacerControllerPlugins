@@ -51,6 +51,24 @@ namespace ClosingUnownedWasub
 
         #region Members
 
+        public WaspEnvent[] Activate( params object[] paramsArr )
+        {
+            this.InitTimer();
+            return null;
+        }
+
+        public async Task<object> Event( WaspEnvent eventName, params object[] paramsArr )
+        {
+            await TaskEx.Run( () => this.InitTimer() );
+            return null;
+        }
+
+        public void ShowSettingsForm()
+        {
+        }
+
+        #region InfoFields
+
         public string PluginName
         {
             get { return "ClosingUnownedWasub"; }
@@ -76,21 +94,7 @@ namespace ClosingUnownedWasub
             get { return new Version( 1, 0, 1 ); }
         }
 
-        public WaspEnvent[] Activate( params object[] paramsArr )
-        {
-            this.InitTimer();
-            return null;
-        }
-
-        public async Task<object> Event( WaspEnvent eventName, params object[] paramsArr )
-        {
-            await TaskEx.Run( () => this.InitTimer() );
-            return null;
-        }
-
-        public void ShowSettingsForm()
-        {
-        }
+        #endregion
 
         #endregion
     }

@@ -58,6 +58,37 @@ namespace PowerControll
             }
         }
 
+        #region Members
+
+        public WaspEnvent[] Activate( params object[] paramsArr )
+        {
+            if ( paramsArr.Length > 1 && paramsArr[ 1 ] != null )
+            {
+                this._waController = (IWaController)paramsArr[ 1 ];
+            }
+            return new[] { WaspEnvent.CreateMenuItem, WaspEnvent.MenuItemClicked };
+        }
+
+        public async Task<object> Event( WaspEnvent eventName, params object[] paramsArr )
+        {
+            switch ( eventName )
+            {
+                case WaspEnvent.CreateMenuItem:
+                    return await this.CreateMenuItem();
+
+                case WaspEnvent.MenuItemClicked:
+                    await this.MenuItemClicked( paramsArr[ 0 ].ToString() );
+                    break;
+            }
+            return null;
+        }
+
+        #region InfoFields
+
+        public void ShowSettingsForm()
+        {
+        }
+
         public string PluginName
         {
             get { return "PowerControll"; }
@@ -83,31 +114,8 @@ namespace PowerControll
             get { return new Version( "1.0.1" ); }
         }
 
-        public WaspEnvent[] Activate( params object[] paramsArr )
-        {
-            if ( paramsArr.Length > 1 && paramsArr[ 1 ] != null )
-            {
-                this._waController = (IWaController)paramsArr[ 1 ];
-            }
-            return new[] { WaspEnvent.CreateMenuItem, WaspEnvent.MenuItemClicked };
-        }
+        #endregion
 
-        public async Task<object> Event( WaspEnvent eventName, params object[] paramsArr )
-        {
-            switch ( eventName )
-            {
-                case WaspEnvent.CreateMenuItem:
-                    return await this.CreateMenuItem();
-
-                case WaspEnvent.MenuItemClicked:
-                    await this.MenuItemClicked( paramsArr[ 0 ].ToString() );
-                    break;
-            }
-            return null;
-        }
-
-        public void ShowSettingsForm()
-        {
-        }
+        #endregion
     }
 }
