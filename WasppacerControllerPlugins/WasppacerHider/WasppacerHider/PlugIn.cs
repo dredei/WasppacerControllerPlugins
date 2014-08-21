@@ -62,8 +62,12 @@ namespace WasppacerHider
         #endregion
 
         private ISettings _settings;
+        private bool _showThenHide = false;
+        private int _showThenHideCount = 0;
 
-        private bool AlwaysHideWasppacer
+        #region Настройки
+
+        private bool AlwaysHideWasppacerSett
         {
             get
             {
@@ -77,7 +81,7 @@ namespace WasppacerHider
             }
         }
 
-        private bool ShowWasppacer
+        private bool ShowWasppacerSett
         {
             get
             {
@@ -91,6 +95,22 @@ namespace WasppacerHider
             }
             set { this._settings[ this, "ShowWasppacer" ] = value; }
         }
+
+        private int ShowThenHideDelay
+        {
+            get
+            {
+                int res = 5000;
+                object resObj = this._settings[ this, "ShowThenHideDelay" ];
+                if ( resObj != null )
+                {
+                    int.TryParse( resObj.ToString(), out res );
+                }
+                return res;
+            }
+        }
+
+        #endregion
 
         private async Task HideShowWasppacer( bool hide = false )
         {
@@ -127,6 +147,18 @@ namespace WasppacerHider
             } );
         }
 
+        private async Task ShowWasppacer()
+        {
+            this.ShowWasppacerSett = true;
+            await this.HideShowWasppacer();
+        }
+
+        private async Task HideWasppacer()
+        {
+            this.ShowWasppacerSett = false;
+            await this.HideShowWasppacer( true );
+        }
+
         #region Members
 
         public WaspEnvent[] Activate( params object[] paramsArr )
@@ -147,7 +179,15 @@ namespace WasppacerHider
                     return null;
 
                 case WaspEnvent.TimerTick:
-                    if ( !this.ShowWasppacer && this.AlwaysHideWasppacer )
+                    if ( this._showThenHide )
+                    {
+                        this._showThenHideCount += 250;
+                        if ( this._showThenHideCount >= this.ShowThenHideDelay )
+                        {
+                            await this.HideWasppacer();
+                        }
+                    }
+                    if ( !this.ShowWasppacerSett && this.AlwaysHideWasppacerSett )
                     {
                         await this.HideShowWasppacer( true );
                     }
@@ -161,7 +201,8 @@ namespace WasppacerHider
             return await TaskEx.Run( () => new Dictionary<string, string>
             {
                 { "Скрыть Wasppacer", "HideWasppacer" },
-                { "Показать Wasppacer", "ShowWasppacer" }
+                { "Показать Wasppacer", "ShowWasppacer" },
+                { "Показать и скрыть", "ShowThenHide" }
             } );
         }
 
@@ -170,13 +211,17 @@ namespace WasppacerHider
             switch ( functionName )
             {
                 case "HideWasppacer":
-                    this.ShowWasppacer = false;
-                    await this.HideShowWasppacer( true );
+                    await this.HideWasppacer();
                     break;
 
                 case "ShowWasppacer":
-                    this.ShowWasppacer = true;
-                    await this.HideShowWasppacer();
+                    await this.ShowWasppacer();
+                    break;
+
+                case "ShowThenHide":
+                    await this.ShowWasppacer();
+                    this._showThenHide = true;
+                    this._showThenHideCount = 0;
                     break;
             }
         }
@@ -211,7 +256,7 @@ namespace WasppacerHider
 
         public Version Version
         {
-            get { return new Version( "1.0.1" ); }
+            get { return new Version( "1.0.2" ); }
         }
 
         #endregion
