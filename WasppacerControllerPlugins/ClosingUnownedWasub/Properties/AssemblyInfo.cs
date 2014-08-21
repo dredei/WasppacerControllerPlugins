@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ClosingUnownedWasub")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany( "dredei" )]
+[assembly: AssemblyCompany( "dredei, http://www.softez.pp.ua/" )]
 [assembly: AssemblyProduct("ClosingUnownedWasub")]
 [assembly: AssemblyCopyright( "Copyright © dredei, 2014" )]
 [assembly: AssemblyTrademark("")]

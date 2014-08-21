@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("WasppacerHider")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany( "dredei" )]
+[assembly: AssemblyCompany( "dredei, http://www.softez.pp.ua/" )]
 [assembly: AssemblyProduct("WasppacerHider")]
 [assembly: AssemblyCopyright( "Copyright © dredei, 2014" )]
 [assembly: AssemblyTrademark("")]
