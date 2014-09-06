@@ -62,8 +62,8 @@ namespace WasppacerHider
         #endregion
 
         private ISettings _settings;
-        private bool _showThenHide = false;
-        private int _showThenHideCount = 0;
+        private bool _showThenHide;
+        private int _showThenHideCount;
 
         #region Настройки
 
@@ -185,6 +185,7 @@ namespace WasppacerHider
                         if ( this._showThenHideCount >= this.ShowThenHideDelay )
                         {
                             await this.HideWasppacer();
+                            this._showThenHide = false;
                         }
                     }
                     if ( !this.ShowWasppacerSett && this.AlwaysHideWasppacerSett )
